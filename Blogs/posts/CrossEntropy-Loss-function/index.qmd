@@ -1,0 +1,79 @@
+---
+title: "Entropy, CrossEntropy and KL-Divergence"
+author: "Potala Tarun"
+date: "2025-02-12"
+categories: [MachineLearning, Lossfunction, code]
+image: "image.jpg"
+draft: True
+---
+
+
+Lets say weather station sends the information about the weather for tomorrow to the media station
+
+For example:
+
+
+there are chances of rainy are 50% and sunny are 50%
+
+But the weather station sends the information as its rainy tomorrow, then earlier we have 2 options which we have 50% uncertainity, but now we have only option according to the weather station its rainly.
+
+Now the uncertanity has decreased or reduced by a factor of 2.
+
+Here we can say that weather station can send the information like this if it is rainy they can use one bit as '0', if it is sunny then it is '1'.
+
+But, how much useful information does weather station has sent, they has 1 bit of useful information however they have encoded the message as for example, if they have encoded the message rainy then 5 letters 5 bytes which equals 40 bits.
+
+Here the weather station has sent only 1 bit of useful information.
+
+Now lets say, there 8 equally likely events happening:
+
+since its a equally likely event then they have accurance of 50% chance each:
+
+Now how much useful information does the weather station will send?
+
+if tomorrow the weather station has sent it will be rainy tomorrow then the uncertainity has decreased or reduced by a factor of 8.
+
+which we can say that it is 2^3 = 8.
+
+how much useful information did they sent us ?.
+
+we can say this by using binary log of uncertanily_reduced_by_factor.
+
+in this case log8 to base 2 = 3, hence 3 bits of useful information has been shared.
+
+Now, lets say the events are not evenly likely then how can say?
+
+lets calculate:
+
+example:
+
+25% rainy    75% sunny
+
+now weather station said it will be rainy tomorrow then 
+
+the uncertainity is being reduced by a factor of 4
+
+log 4 of base 2 = 2 useful bit of information has been shared
+
+here the actual probability of begin rainy is 25% right,
+
+so to calculate the uncertainity reduction we can use this formula:
+inverse of its probability
+
+(1/25%) = 100/4 = 4
+
+so log(1/x) = -log(x)
+
+
+what if weather station says its sunny tomorrow :
+
+log(1/75%) = -log(0.75) = 0.41 bits
+
+we get only 0.41 bits of useful information
+
+
+lets check how to calculate the average of the useful information:
+
+75% * 0.41 + 25% * 2 = 0.81 bits useful information on an average
+
+it is called entropy which is also called as the measure of randomness.
